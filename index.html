@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f1e8"><meta name="description" content="A gentle, voice-led audio companion for mindful outdoor walks. Your reflections stay on your device.">
+  <title>Mind Music Walks — a little room to breathe</title>
+  <link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Mind Music Walks home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 34V11m0 10C12 21 8 16 8 9c8 0 12 4 12 12Zm0-5c0-7 4-11 12-11 0 7-4 11-12 11Z"/><path d="M11 31c2-4 5-6 9-6m9 6c-2-4-5-6-9-6"/></svg></span><span>mind music <b>walks</b></span></a>
+    <div class="top-actions"><span id="modelBadge" class="model-badge"><i></i><span>Checking local AI</span></span><button id="languageToggle" class="language-toggle" aria-label="Switch language">EN <span>⌄</span></button></div>
+  </header>
+  <main id="home">
+    <section class="intro">
+      <div class="intro-copy"><div class="eyebrow"><span class="sun-dot"></span><span id="dayLabel">A SMALL PAUSE, JUST FOR YOU</span></div>
+        <h1>Let the world<br>meet you <em>where you are.</em></h1>
+        <p class="intro-sub">A little music, a softer breath, and the simple magic of being outside.</p>
+      </div>
+      <div class="art-scene" aria-hidden="true"><div class="sun"></div><div class="hill hill-back"></div><div class="hill hill-front"></div><div class="path"></div><div class="plant plant-one"><i></i><i></i><i></i><b></b></div><div class="plant plant-two"><i></i><i></i><i></i><b></b></div><div class="bird bird-one">⌁</div><div class="bird bird-two">⌁</div></div>
+    </section>
+    <section class="planner" aria-labelledby="plannerTitle">
+      <div class="planner-heading"><div><span class="step-label">YOUR WALK, YOUR WAY</span><h2 id="plannerTitle">What would feel good today?</h2></div><span class="tiny-sparkle" aria-hidden="true">✳</span></div>
+      <fieldset class="mood-grid"><legend class="sr-only">Choose how you feel</legend>
+        <button class="mood-card selected" type="button" data-mood="frazzled" aria-pressed="true"><span class="mood-emoji">☁️</span><span class="mood-name">A bit tangled</span><span class="mood-hint">Too much on my mind</span></button>
+        <button class="mood-card" type="button" data-mood="low" aria-pressed="false"><span class="mood-emoji">🌧️</span><span class="mood-name">Running low</span><span class="mood-hint">Could use a lift</span></button>
+        <button class="mood-card" type="button" data-mood="restless" aria-pressed="false"><span class="mood-emoji">🍃</span><span class="mood-name">A little restless</span><span class="mood-hint">Need to let things out</span></button>
+        <button class="mood-card" type="button" data-mood="steady" aria-pressed="false"><span class="mood-emoji">🌤️</span><span class="mood-name">Doing okay</span><span class="mood-hint">Just want to be here</span></button>
+      </fieldset>
+      <div class="planner-options">
+        <div class="option-block"><div class="option-title"><span>How much time have you got?</span><span class="option-meta">NO RUSH</span></div><div class="duration-row" role="group" aria-label="Walk duration"><button type="button" class="duration-chip" data-minutes="5" aria-pressed="false">5 min</button><button type="button" class="duration-chip active" data-minutes="10" aria-pressed="true">10 min</button><button type="button" class="duration-chip" data-minutes="15" aria-pressed="false">15 min</button><button type="button" class="duration-chip" data-minutes="20" aria-pressed="false">20 min</button></div></div>
+        <div class="option-block sound-block"><div class="option-title"><span>What would you like to hear?</span><span class="option-meta">OPTIONAL</span></div><div class="sound-row" role="group" aria-label="Ambient sound"><button class="sound-chip active" data-sound="music" type="button" aria-pressed="true"><span>♬</span> Soft tones</button><button class="sound-chip" data-sound="birds" type="button" aria-pressed="false"><span>⌁</span> Birdsong</button><button class="sound-chip" data-sound="rain" type="button" aria-pressed="false"><span>〰</span> Soft rain</button><button class="sound-chip" data-sound="quiet" type="button" aria-pressed="false"><span>◌</span> Outside</button></div></div>
+      </div>
+      <div class="privacy-note"><span class="lock-icon">⌑</span><span>Your mood stays here, on this device. No account, no tracking.</span><button id="privacyInfo" type="button" aria-label="About your privacy">ⓘ</button></div>
+      <button id="startWalk" class="start-button" type="button"><span class="start-icon">▶</span><span><b>Make my walk</b><small>A quiet companion is waiting</small></span><span class="button-arrow">↗</span></button>
+      <p class="model-note" id="modelNote">Personalized locally with Gemma when available. Your walk still works without it.</p>
+    </section>
+    <section id="walkScreen" class="walk-screen" hidden aria-live="polite">
+      <div class="walk-topline"><button id="endWalk" class="text-button" type="button">← &nbsp;End walk</button><span id="walkMode">YOUR 10-MINUTE RESET</span></div>
+      <div class="walk-landscape" aria-hidden="true"><div class="walk-sun"></div><div class="walk-hill one"></div><div class="walk-hill two"></div><div class="walk-path"></div><div class="walk-stem s1"></div><div class="walk-stem s2"></div><div class="walk-stem s3"></div></div>
+      <div class="walk-copy"><span id="walkSource" class="walk-source">MADE FOR THIS MOMENT</span><h2 id="walkTitle">Find your own easy pace.</h2><p id="walkText">Let your shoulders drop a little. Feel the air move across your face. You can take this one step at a time.</p></div>
+      <div class="walk-controls"><div class="timer-line"><span id="elapsedTime">00:00</span><div class="progress-track"><i id="progressFill"></i></div><span id="totalTime">10:00</span></div><div class="control-row"><button id="restartGuide" class="round-control" type="button" aria-label="Replay the guide">↺</button><button id="playPause" class="play-control" type="button" aria-label="Pause walk audio">Ⅱ</button><button id="soundToggle" class="round-control" type="button" aria-label="Toggle ambient sound">♬</button></div><p id="walkHint">Put your phone away when you're ready. Your voice guide will stay with you.</p></div>
+    </section>
+    <section class="below-fold"><div class="gentle-note"><span>✳</span><div><b>There is no wrong way to take this walk.</b><p>Pause, skip a prompt, or turn the sound off whenever you like. Please stay aware of your surroundings.</p></div></div><button id="historyButton" class="history-button" type="button">A little note to yourself <span>＋</span></button><div id="historyPanel" class="history-panel" hidden><label for="reflection">How are you feeling now? <span>Just for you</span></label><textarea id="reflection" rows="3" maxlength="280" placeholder="A word, a feeling, or nothing at all…"></textarea><div class="history-footer"><span id="savedStatus">Saved only on this device</span><button id="clearNotes" class="clear-button" type="button" hidden>Clear saved notes</button><button id="saveReflection" class="save-button" type="button">Save note</button></div><div id="pastNotes" class="past-notes"></div></div></section>
+    <footer><span>Made for the moments between places.</span><span>Not therapy. Just a gentle walk companion.</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

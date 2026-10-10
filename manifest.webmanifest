@@ -1,0 +1,10 @@
+{
+  "name": "Mind Music Walks",
+  "short_name": "Mind Walks",
+  "description": "A gentle, voice-led companion for mindful outdoor walks.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f3eb",
+  "theme_color": "#f5f3eb",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
